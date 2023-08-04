@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!
+{% endblock %}
+
+{% block body %}
+	<h1>{{ publication.title }}</h1>
+
+	<h3>Ajouter un commentaire</h3>
+    {{ form_start(form)}}
+    <button type="submit">Valider le formulaire</button>
+    {{ form_end(form) }}
+
+	<p>{{publication.content}}</p>
+	<p>{{publication.createdAt|date('y-m-d H:i:s')}}</p>
+	<h4>La publication contient 
+		{{ publication.comments|length }}
+		commentaires
+	</h4>
+	{% for comment in publication.comments %}
+	
+	<ul>
+		<li>{{comment.createdAt|date('y-m-d H:i:s')}} : {{comment.content}}</li>
+	</ul>
+
+
+	{% endfor %}
+{% endblock %}

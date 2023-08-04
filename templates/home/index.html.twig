@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+
+<h1>Liste de toutes les publications</h1>
+    {% for publication in publications %}
+    <ul> 
+		<li><a href="{{ path('app_publication_show', {'id': publication.id})}}">{{ publication.title }}</li>
+    </ul> 
+	{% endfor %}
+
+{% endblock %}
